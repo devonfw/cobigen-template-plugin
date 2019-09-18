@@ -4,7 +4,7 @@
    <groupId>com.devonfw.cobigen</groupId>
    <artifactId>todoplugin</artifactId>
    <name>CobiGen - Todo Plug-in</name>
-   <version>2.4.0-SNAPSHOT</version>
+   <version>1.0.0-SNAPSHOT</version>
    <packaging>jar</packaging>
    <description>CobiGen - Todo Plug-in</description>
    
@@ -16,7 +16,6 @@
       <server.url>https\://registry.npmjs.org/@devonfw/cobigen-todoserver/-/cobigen-todoserver-${server.version}.tgz</server.url>
       <server.url.linux>https\://registry.npmjs.org/@devonfw/cobigen-todoserver-linux/-/cobigen-todoserver-linux-${server.version}.tgz</server.url.linux>
       <server.url.macos>https\://registry.npmjs.org/@devonfw/cobigen-todoserver-macos/-/cobigen-todoserver-macos-${server.version}.tgz</server.url.macos>
-	  
 	  
       <!-- Maven related properties, not need to be changed -->
       <skip.deployment>false</skip.deployment>
