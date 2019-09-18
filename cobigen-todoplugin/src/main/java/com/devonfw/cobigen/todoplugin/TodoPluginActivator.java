@@ -12,17 +12,17 @@ import com.google.common.collect.Lists;
  * Todo Plug-in Activator to be registered in the PluginRegistry of CobiGen.
  */
 public class TodoPluginActivator implements GeneratorPluginActivator {
-    
+
     /**
      * Defines the trigger type
      */
-    private static final String TRIGGER_TYPE = "todo";
+    private static final String TRIGGER_TYPE = "typescript";
 
     @Override
     public List<Merger> bindMerger() {
         List<Merger> merger = Lists.newLinkedList();
-        merger.add(new TodoMerger("todomerge", false));
-        merger.add(new TodoMerger("todomerge_override", true));
+        merger.add(new TodoMerger("tsmerge", false));
+        merger.add(new TodoMerger("tsmerge_override", true));
         return merger;
     }
 

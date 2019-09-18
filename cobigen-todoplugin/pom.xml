@@ -10,12 +10,12 @@
    
    <properties>
       <!-- External server properties -->
-      <plugin.name>${project.artifactId}</plugin.name>
-      <server.name>todoserver</server.name>
-      <server.version>1.0.0</server.version>
-      <server.url>https\://registry.npmjs.org/@devonfw/cobigen-todoserver/-/cobigen-todoserver-${server.version}.tgz</server.url>
-      <server.url.linux>https\://registry.npmjs.org/@devonfw/cobigen-todoserver-linux/-/cobigen-todoserver-linux-${server.version}.tgz</server.url.linux>
-      <server.url.macos>https\://registry.npmjs.org/@devonfw/cobigen-todoserver-macos/-/cobigen-todoserver-macos-${server.version}.tgz</server.url.macos>
+      <plugin.name>tsplugin</plugin.name>
+      <server.name>nestserver</server.name>
+      <server.version>1.1.1</server.version>
+      <server.url>https\://registry.npmjs.org/@devonfw/cobigen-nestserver/-/cobigen-nestserver-${server.version}.tgz</server.url>
+      <server.url.linux>https\://registry.npmjs.org/@devonfw/cobigen-nestserver-linux/-/cobigen-nestserver-linux-${server.version}.tgz</server.url.linux>
+      <server.url.macos>https\://registry.npmjs.org/@devonfw/cobigen-nestserver-macos/-/cobigen-nestserver-macos-${server.version}.tgz</server.url.macos>
 	  
       <!-- Maven related properties, not need to be changed -->
       <skip.deployment>false</skip.deployment>
