@@ -37,7 +37,8 @@ public class TodoInputReaderTest {
     public String readingInput(Path filePath) {
 
         // act
-        String inputModel = (String) new TodoInputReader().read(filePath, Charset.defaultCharset());
+        TodoInputReader todoInputReader = new TodoInputReader();
+        String inputModel = (String) todoInputReader.read(filePath, Charset.defaultCharset());
         // Use the following assert as template for your testing
         // assertThat(inputModel).contains("\"identifier\":\"aProperty\"");
         return inputModel;
@@ -53,12 +54,13 @@ public class TodoInputReaderTest {
     public void testCreatingModel() {
 
         // arrange
+        TodoInputReader todoInputReader = new TodoInputReader();
         File baseFile = new File(testFileRootPath + "baseFile.todo");
 
         String inputModel =
-            (String) new TodoInputReader().read(baseFile.getAbsoluteFile().toPath(), Charset.defaultCharset());
+            (String) todoInputReader.read(baseFile.getAbsoluteFile().toPath(), Charset.defaultCharset());
 
-        Map<String, Object> mapModel = new TodoInputReader().createModel(inputModel);
+        Map<String, Object> mapModel = todoInputReader.createModel(inputModel);
         assertThat(mapModel).isNotNull();
 
         LOG.debug(mapModel.toString());
@@ -93,8 +95,11 @@ public class TodoInputReaderTest {
     @Test
     public void testValidInput() {
 
+        // Arrange
+        TodoInputReader todoInputReader = new TodoInputReader();
+
         File baseFile = new File(testFileRootPath + "baseFile.todo");
-        boolean isValidInput = new TodoInputReader().isValidInput(baseFile);
+        boolean isValidInput = todoInputReader.isValidInput(baseFile);
 
         LOG.debug("Valid input ? " + isValidInput);
         assertTrue(isValidInput);
@@ -110,8 +115,11 @@ public class TodoInputReaderTest {
     @Test
     public void testIsMostProbablyReadable() {
 
+        // Arrange
+        TodoInputReader todoInputReader = new TodoInputReader();
+
         File baseFile = new File(testFileRootPath + "baseFile.todo");
-        boolean isReadable = new TodoInputReader().isMostLikelyReadable(baseFile.toPath());
+        boolean isReadable = todoInputReader.isMostLikelyReadable(baseFile.toPath());
 
         LOG.debug("is most probably readable ? " + isReadable);
         assertTrue(isReadable);
@@ -125,12 +133,14 @@ public class TodoInputReaderTest {
      */
     @Test
     public void testIsValidInputAfterReading() {
+        // Arrange
+        TodoInputReader todoInputReader = new TodoInputReader();
 
         File baseFile = new File(testFileRootPath + "baseFile.todo");
         // parsing
-        Object input = new TodoInputReader().read(baseFile.toPath(), Charset.defaultCharset());
+        Object input = todoInputReader.read(baseFile.toPath(), Charset.defaultCharset());
         // Now checking whether the input is valid
-        boolean isValid = new TodoInputReader().isValidInput(baseFile.toPath());
+        boolean isValid = todoInputReader.isValidInput(baseFile.toPath());
 
         LOG.debug("is valid ? " + isValid);
         assertTrue(isValid);
@@ -144,8 +154,11 @@ public class TodoInputReaderTest {
     @Test
     public void testGetInputObjects() {
 
+        // Arrange
+        TodoInputReader todoInputReader = new TodoInputReader();
+
         File baseFile = new File(testFileRootPath + "baseFile.todo");
-        List<Object> todoInputObjects = new TodoInputReader().getInputObjects(baseFile, Charset.defaultCharset());
+        List<Object> todoInputObjects = todoInputReader.getInputObjects(baseFile, Charset.defaultCharset());
         // Uncomment the following
         // LinkedHashMap<String, Object> inputObject = castToHashMap(todoInputObjects.get(0));
 

@@ -31,11 +31,11 @@ public class TodoMergerTest {
     public void testMergingNoOverrides() {
 
         // arrange
+        TodoMerger todoMerger = new TodoMerger("todomerge", false);
         File baseFile = new File(testFileRootPath + "baseFile.todo");
 
         // act
-        String mergedContents =
-            new TodoMerger("todomerge", false).merge(baseFile, readTodoFile("patchFile.todo"), "UTF-8");
+        String mergedContents = todoMerger.merge(baseFile, readTodoFile("patchFile.todo"), "UTF-8");
 
         assertThat(mergedContents).isNotNull();
         // Use the following assert as template for your testing
@@ -43,7 +43,7 @@ public class TodoMergerTest {
         // assertThat(mergedContents).contains("private b: number;");
         // assertThat(mergedContents).contains("bProperty");
 
-        mergedContents = new TodoMerger("todomerge", false).merge(baseFile, readTodoFile("patchFile.todo"), "ISO-8859-1");
+        mergedContents = todoMerger.merge(baseFile, readTodoFile("patchFile.todo"), "ISO-8859-1");
 
         assertThat(mergedContents).isNotNull();
         // Use the following assert as template for your testing
@@ -62,11 +62,11 @@ public class TodoMergerTest {
     public void testMergingOverrides() {
 
         // arrange
+        TodoMerger todoMerger = new TodoMerger("todomerge", true);
         File baseFile = new File(testFileRootPath + "baseFile.todo");
 
         // act
-        String mergedContents =
-            new TodoMerger("todomerge", true).merge(baseFile, readTodoFile("patchFile.todo"), "UTF-8");
+        String mergedContents = todoMerger.merge(baseFile, readTodoFile("patchFile.todo"), "UTF-8");
 
         assertThat(mergedContents).isNotNull();
         // Use the following assert as template for your testing
@@ -74,7 +74,7 @@ public class TodoMergerTest {
         // assertThat(mergedContents).contains("private b: number;");
         // assertThat(mergedContents).contains("bProperty");
 
-        mergedContents = new TodoMerger("todomerge", true).merge(baseFile, readTodoFile("patchFile.todo"), "ISO-8859-1");
+        mergedContents = todoMerger.merge(baseFile, readTodoFile("patchFile.todo"), "ISO-8859-1");
 
         assertThat(mergedContents).isNotNull();
         // Use the following assert as template for your testing
@@ -94,11 +94,12 @@ public class TodoMergerTest {
     @Test
     public void testReadingEncoding() throws IOException {
 
+        // Arrange
+        TodoMerger todoMerger = new TodoMerger("todomerge", false);
         File baseFile = new File(testFileRootPath + "baseFile_encoding_UTF-8.todo");
         File patchFile = new File(testFileRootPath + "patchFile.todo");
 
-        String mergedContents =
-            new TodoMerger("todomerge", false).merge(baseFile, FileUtils.readFileToString(patchFile), "UTF-8");
+        String mergedContents = todoMerger.merge(baseFile, FileUtils.readFileToString(patchFile), "UTF-8");
 
         // Use the following assert as template for your testing
         // assertThat(mergedContents.contains("Ñ")).isTrue();
